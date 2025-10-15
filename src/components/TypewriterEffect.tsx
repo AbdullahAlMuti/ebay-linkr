@@ -22,14 +22,12 @@ export const TypewriterEffect = ({
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
   const textRef = useRef<HTMLSpanElement>(null);
   const cursorRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (isPaused) return;
-
-    const currentWord = words[currentWordIndex];
+    const currentWord = words[currentWordIndex] || '';
+    
     const timeout = setTimeout(() => {
       if (!isDeleting) {
         // Typing
@@ -63,33 +61,13 @@ export const TypewriterEffect = ({
     if (cursorRef.current) {
       gsap.to(cursorRef.current, {
         opacity: 0,
-        duration: 0.5,
+        duration: 0.8,
         repeat: -1,
         yoyo: true,
         ease: "power2.inOut"
       });
     }
   }, []);
-
-  // Text reveal animation
-  useGSAP(() => {
-    if (textRef.current) {
-      gsap.fromTo(textRef.current, 
-        { 
-          opacity: 0,
-          y: 20,
-          scale: 0.95
-        },
-        { 
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.3,
-          ease: "power2.out"
-        }
-      );
-    }
-  }, [currentText]);
 
   return (
     <span className={`inline-block ${className}`}>
@@ -98,8 +76,11 @@ export const TypewriterEffect = ({
       </span>
       <span 
         ref={cursorRef}
-        className="inline-block w-0.5 h-[1em] bg-current ml-1 animate-pulse"
-        style={{ animation: 'none' }}
+        className="inline-block w-1 h-[1em] bg-current ml-1"
+        style={{ 
+          animation: 'none',
+          opacity: 1
+        }}
       />
     </span>
   );
