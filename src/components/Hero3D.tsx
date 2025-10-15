@@ -2,10 +2,13 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Sphere, MeshDistortMaterial, Float } from '@react-three/drei';
 import { Suspense, useRef, useState } from 'react';
 import { Button } from './ui/button';
-import { Zap, ArrowRight } from 'lucide-react';
+import { Zap, ArrowRight, Sparkles, Brain, Rocket } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { FloatingIcons3D } from './FloatingIcons3D';
+import { TypewriterEffect } from './TypewriterEffect';
+import { FuturisticBackground } from './FuturisticBackground';
+import { HolographicEffect } from './HolographicEffect';
 
 const AnimatedSphere = () => {
   return (
@@ -48,29 +51,102 @@ const AnimatedSphere = () => {
   );
 };
 
-const words = ['Auto-list', 'Boost Profits', 'Save Hours', 'Scale Fast'];
+const typewriterWords = [
+  'Auto-list Products',
+  'Boost Revenue 10x',
+  'Save Hours Daily',
+  'Scale Your Business',
+  'AI-Powered Success'
+];
+
+const features = [
+  { icon: Brain, text: 'Advanced AI', color: 'text-accent' },
+  { icon: Sparkles, text: 'Smart Automation', color: 'text-primary' },
+  { icon: Rocket, text: 'Lightning Fast', color: 'text-accent-2' }
+];
 
 export const Hero3D = () => {
-  const headlineRef = useRef<HTMLDivElement>(null);
-  const [currentWord, setCurrentWord] = useState(0);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const subtitleRef = useRef<HTMLDivElement>(null);
+  const buttonsRef = useRef<HTMLDivElement>(null);
+  const featuresRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    if (!headlineRef.current) return;
-    
-    const tl = gsap.timeline({ repeat: -1 });
-    words.forEach((_, index) => {
-      tl.to(headlineRef.current, {
-        duration: 0.5,
-        opacity: 0,
-        scale: 0.8,
-        onComplete: () => setCurrentWord((index + 1) % words.length)
-      })
-      .to(headlineRef.current, {
-        duration: 0.5,
-        opacity: 1,
+    if (!heroRef.current) return;
+
+    const tl = gsap.timeline({ delay: 0.5 });
+
+    // Animate elements in sequence
+    tl.fromTo(titleRef.current, 
+      { 
+        opacity: 0, 
+        y: 50, 
+        scale: 0.9,
+        filter: 'blur(10px)'
+      },
+      { 
+        opacity: 1, 
+        y: 0, 
         scale: 1,
-      })
-      .to({}, { duration: 2 });
+        filter: 'blur(0px)',
+        duration: 1.2,
+        ease: "power3.out"
+      }
+    )
+    .fromTo(subtitleRef.current,
+      { 
+        opacity: 0, 
+        y: 30,
+        filter: 'blur(5px)'
+      },
+      { 
+        opacity: 1, 
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 0.8,
+        ease: "power2.out"
+      },
+      "-=0.6"
+    )
+    .fromTo(featuresRef.current,
+      { 
+        opacity: 0, 
+        y: 20,
+        scale: 0.95
+      },
+      { 
+        opacity: 1, 
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        ease: "back.out(1.7)"
+      },
+      "-=0.4"
+    )
+    .fromTo(buttonsRef.current,
+      { 
+        opacity: 0, 
+        y: 30,
+        scale: 0.9
+      },
+      { 
+        opacity: 1, 
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        ease: "power2.out"
+      },
+      "-=0.2"
+    );
+
+    // Continuous floating animation for the hero
+    gsap.to(heroRef.current, {
+      y: -10,
+      duration: 3,
+      ease: "power2.inOut",
+      repeat: -1,
+      yoyo: true
     });
   }, []);
 
@@ -79,90 +155,139 @@ export const Hero3D = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Futuristic Background */}
+      <FuturisticBackground />
+      
       {/* Animated background gradient */}
-      <div className="absolute inset-0 animated-gradient-fire opacity-30" />
+      <div className="absolute inset-0 animated-gradient-fire opacity-20" />
       
       {/* Floating 3D Icons Background */}
       <FloatingIcons3D />
       
       {/* 3D Canvas */}
-      <div className="absolute inset-0 opacity-40">
+      <div className="absolute inset-0 opacity-30">
         <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
           <Suspense fallback={null}>
             <ambientLight intensity={0.5} />
             <directionalLight position={[10, 10, 5]} intensity={1} />
-            <pointLight position={[-10, -10, -5]} intensity={0.5} color="#ff6ec7" />
+            <pointLight position={[-10, -10, -5]} intensity={0.5} color="#fbbf24" />
             <AnimatedSphere />
-            <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
+            <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.3} />
           </Suspense>
         </Canvas>
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className="max-w-5xl mx-auto space-y-8">
-          {/* Animated headline */}
-          <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-accent glow-accent mb-6">
-              <Zap className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium text-glow-accent">Powered by Advanced AI</span>
+        <div className="max-w-6xl mx-auto space-y-12">
+          {/* Futuristic Badge */}
+          <HolographicEffect className="inline-block">
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass-accent glow-accent mb-8">
+              <div className="flex items-center gap-2">
+                <Brain className="w-5 h-5 text-accent animate-pulse" />
+                <span className="text-sm font-medium text-glow-accent">Powered by Advanced AI</span>
+              </div>
+              <div className="w-2 h-2 bg-accent rounded-full animate-ping" />
             </div>
-            
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-tight">
-              <span className="gradient-text-fire">Amazon → eBay</span>
-              <br />
-              <span ref={headlineRef} className="inline-block transition-all gradient-text-golden">
-                {words[currentWord]}
-              </span>
+          </HolographicEffect>
+          
+          {/* Main Title with Typewriter */}
+          <div ref={titleRef} className="space-y-6">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-bold leading-tight">
+              <span className="gradient-text-fire block mb-4">Amazon → eBay</span>
+              <div className="h-20 md:h-24 lg:h-28 flex items-center justify-center">
+                <TypewriterEffect 
+                  words={typewriterWords}
+                  className="gradient-text-golden text-4xl md:text-6xl lg:text-7xl font-bold"
+                  speed={80}
+                  deleteSpeed={40}
+                  pauseTime={1500}
+                />
+              </div>
             </h1>
-            
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-              Generate optimized eBay listings automatically and boost your revenue 10x faster
+          </div>
+
+          {/* Subtitle */}
+          <div ref={subtitleRef} className="max-w-4xl mx-auto">
+            <p className="text-2xl md:text-3xl text-muted-foreground leading-relaxed">
+              Generate optimized eBay listings automatically and boost your revenue{' '}
+              <span className="gradient-text-fire font-semibold">10x faster</span> with AI-powered automation
             </p>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              size="lg" 
-              className="text-lg px-8 py-6 btn-vibrant glow-primary-lg group"
-              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Get Started <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="text-lg px-8 py-6 glass-accent glass-hover hover-glow-green"
-              onClick={scrollToDemo}
-            >
-              See Demo
-            </Button>
+          {/* Feature Pills */}
+          <div ref={featuresRef} className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+            {features.map((feature, index) => (
+              <HolographicEffect key={index} className="inline-block">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full glass hover-glow-blue transition-all duration-300">
+                  <feature.icon className={`w-4 h-4 ${feature.color}`} />
+                  <span className="text-sm font-medium">{feature.text}</span>
+                </div>
+              </HolographicEffect>
+            ))}
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto pt-12">
-            <div className="card-vibrant p-6 rounded-2xl hover-glow-blue">
-              <div className="text-3xl md:text-4xl font-bold gradient-text-fire">10x</div>
-              <div className="text-sm text-muted-foreground mt-2">Faster Listing</div>
-            </div>
-            <div className="card-accent p-6 rounded-2xl hover-glow-green">
-              <div className="text-3xl md:text-4xl font-bold gradient-text-golden">+40%</div>
-              <div className="text-sm text-muted-foreground mt-2">Conversion Rate</div>
-            </div>
-            <div className="card-vibrant p-6 rounded-2xl hover-glow-purple">
-              <div className="text-3xl md:text-4xl font-bold gradient-text-warm">$2M+</div>
-              <div className="text-sm text-muted-foreground mt-2">Revenue Generated</div>
-            </div>
+          {/* CTA Buttons */}
+          <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
+            <HolographicEffect>
+              <Button 
+                size="lg" 
+                className="text-xl px-10 py-8 btn-vibrant glow-primary-lg group relative overflow-hidden"
+                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                <span className="relative z-10 flex items-center gap-3">
+                  Get Started <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              </Button>
+            </HolographicEffect>
+            
+            <HolographicEffect>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="text-xl px-10 py-8 glass-accent glass-hover hover-glow-green group"
+                onClick={scrollToDemo}
+              >
+                <span className="flex items-center gap-3">
+                  <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                  See Demo
+                </span>
+              </Button>
+            </HolographicEffect>
+          </div>
+
+          {/* Enhanced Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto pt-16">
+            {[
+              { value: "10x", label: "Faster Listing", gradient: "gradient-text-fire" },
+              { value: "+40%", label: "Conversion Rate", gradient: "gradient-text-golden" },
+              { value: "$2M+", label: "Revenue Generated", gradient: "gradient-text-warm" }
+            ].map((stat, index) => (
+              <HolographicEffect key={index}>
+                <div className="card-vibrant p-8 rounded-3xl hover-glow-blue group transition-all duration-500">
+                  <div className={`text-5xl md:text-6xl font-bold ${stat.gradient} mb-3`}>
+                    {stat.value}
+                  </div>
+                  <div className="text-lg text-muted-foreground font-medium">
+                    {stat.label}
+                  </div>
+                  <div className="mt-4 h-1 bg-gradient-to-r from-primary/50 to-accent/50 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                </div>
+              </HolographicEffect>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 rounded-full border-2 border-primary/50 flex items-start justify-center p-2 glow-primary">
-          <div className="w-1 h-3 bg-primary rounded-full animate-pulse glow-neon" />
+      {/* Enhanced Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+        <div className="flex flex-col items-center gap-2">
+          <div className="text-xs text-muted-foreground mb-2 animate-pulse">Scroll to explore</div>
+          <div className="w-6 h-10 rounded-full border-2 border-primary/50 flex items-start justify-center p-2 glow-primary">
+            <div className="w-1 h-3 bg-primary rounded-full animate-pulse glow-neon" />
+          </div>
         </div>
       </div>
     </section>
