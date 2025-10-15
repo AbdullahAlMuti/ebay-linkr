@@ -19,29 +19,29 @@ All colors MUST be HSL.
     --popover: 240 15% 10%;
     --popover-foreground: 0 0% 98%;
 
-    /* Electric blue primary */
-    --primary: 210 100% 60%;
+    /* Vibrant golden yellow primary */
+    --primary: 45 100% 60%;
     --primary-foreground: 240 20% 6%;
-    --primary-glow: 210 100% 70%;
+    --primary-glow: 45 100% 70%;
     
-    /* Vibrant purple secondary */
-    --secondary: 280 100% 65%;
+    /* Deep red secondary */
+    --secondary: 0 85% 60%;
     --secondary-foreground: 240 20% 6%;
 
     /* Rich muted tones */
     --muted: 240 10% 20%;
     --muted-foreground: 0 0% 70%;
 
-    /* Electric green accent */
-    --accent: 120 100% 55%;
+    /* Bright orange accent */
+    --accent: 25 100% 60%;
     --accent-foreground: 240 20% 6%;
 
-    /* Hot pink accent */
-    --accent-2: 320 100% 60%;
+    /* Crimson red accent */
+    --accent-2: 350 85% 65%;
     --accent-2-foreground: 240 20% 6%;
 
-    /* Orange accent */
-    --accent-3: 25 100% 60%;
+    /* Amber accent */
+    --accent-3: 35 100% 65%;
     --accent-3-foreground: 240 20% 6%;
 
     --destructive: 0 84.2% 60.2%;
@@ -53,7 +53,7 @@ All colors MUST be HSL.
 
     --radius: 1.5rem;
     
-    /* Rich multi-color gradients */
+    /* Warm yellowish-reddish gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
     --gradient-glow: linear-gradient(135deg, hsl(var(--primary) / 0.4), hsl(var(--secondary) / 0.4));
     --gradient-accent: radial-gradient(circle at 50% 50%, hsl(var(--accent) / 0.5), transparent);
@@ -61,6 +61,9 @@ All colors MUST be HSL.
     --gradient-rainbow: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent-2)), hsl(var(--accent)), hsl(var(--accent-3)), hsl(var(--secondary)));
     --gradient-sunset: linear-gradient(135deg, hsl(var(--accent-2)), hsl(var(--accent-3)), hsl(var(--primary)));
     --gradient-ocean: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)));
+    --gradient-fire: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--accent-2)));
+    --gradient-golden: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-3)), hsl(var(--accent)));
+    --gradient-warm: linear-gradient(45deg, hsl(var(--accent-3)), hsl(var(--primary)), hsl(var(--accent)), hsl(var(--accent-2)));
     
     /* Enhanced glassmorphic effects */
     --glass-bg: hsl(var(--card) / 0.6);
@@ -193,6 +196,33 @@ All colors MUST be HSL.
     animation: gradient-shift 4s ease infinite;
   }
   
+  .gradient-text-fire {
+    background: var(--gradient-fire);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease infinite;
+  }
+  
+  .gradient-text-golden {
+    background: var(--gradient-golden);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 4s ease infinite;
+  }
+  
+  .gradient-text-warm {
+    background: var(--gradient-warm);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 5s ease infinite;
+  }
+  
   /* Enhanced glow effects */
   .glow-primary {
     box-shadow: var(--shadow-glow);
@@ -241,6 +271,24 @@ All colors MUST be HSL.
     background: var(--gradient-ocean);
     background-size: 200% 200%;
     animation: gradient-shift 5s ease infinite;
+  }
+  
+  .animated-gradient-fire {
+    background: var(--gradient-fire);
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+  
+  .animated-gradient-golden {
+    background: var(--gradient-golden);
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+  }
+  
+  .animated-gradient-warm {
+    background: var(--gradient-warm);
+    background-size: 300% 300%;
+    animation: gradient-shift 6s ease infinite;
   }
   
   @keyframes gradient-shift {

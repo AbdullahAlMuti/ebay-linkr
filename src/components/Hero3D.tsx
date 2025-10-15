@@ -12,7 +12,7 @@ const AnimatedSphere = () => {
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
       <Sphere args={[1, 100, 200]} scale={2.5}>
         <MeshDistortMaterial
-          color="#3b82f6"
+          color="#fbbf24"
           attach="material"
           distort={0.5}
           speed={2}
@@ -22,7 +22,7 @@ const AnimatedSphere = () => {
       </Sphere>
       <Sphere args={[1, 100, 200]} scale={2.2} position={[1, 0, -0.5]}>
         <MeshDistortMaterial
-          color="#a855f7"
+          color="#dc2626"
           attach="material"
           distort={0.3}
           speed={1.5}
@@ -34,7 +34,7 @@ const AnimatedSphere = () => {
       </Sphere>
       <Sphere args={[1, 100, 200]} scale={1.8} position={[-1, 0, -0.3]}>
         <MeshDistortMaterial
-          color="#10b981"
+          color="#ea580c"
           attach="material"
           distort={0.4}
           speed={1.8}
@@ -81,7 +81,7 @@ export const Hero3D = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated background gradient */}
-      <div className="absolute inset-0 animated-gradient-ocean opacity-30" />
+      <div className="absolute inset-0 animated-gradient-fire opacity-30" />
       
       {/* Floating 3D Icons Background */}
       <FloatingIcons3D />
@@ -110,9 +110,9 @@ export const Hero3D = () => {
             </div>
             
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-tight">
-              <span className="gradient-text-rainbow">Amazon → eBay</span>
+              <span className="gradient-text-fire">Amazon → eBay</span>
               <br />
-              <span ref={headlineRef} className="inline-block transition-all gradient-text-ocean">
+              <span ref={headlineRef} className="inline-block transition-all gradient-text-golden">
                 {words[currentWord]}
               </span>
             </h1>
@@ -126,7 +126,7 @@ export const Hero3D = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg" 
-              className="text-lg px-8 py-6 btn-rainbow glow-primary-lg group"
+              className="text-lg px-8 py-6 btn-vibrant glow-primary-lg group"
               onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Get Started <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -144,15 +144,15 @@ export const Hero3D = () => {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto pt-12">
             <div className="card-vibrant p-6 rounded-2xl hover-glow-blue">
-              <div className="text-3xl md:text-4xl font-bold gradient-text-sunset">10x</div>
+              <div className="text-3xl md:text-4xl font-bold gradient-text-fire">10x</div>
               <div className="text-sm text-muted-foreground mt-2">Faster Listing</div>
             </div>
             <div className="card-accent p-6 rounded-2xl hover-glow-green">
-              <div className="text-3xl md:text-4xl font-bold gradient-text-ocean">+40%</div>
+              <div className="text-3xl md:text-4xl font-bold gradient-text-golden">+40%</div>
               <div className="text-sm text-muted-foreground mt-2">Conversion Rate</div>
             </div>
             <div className="card-vibrant p-6 rounded-2xl hover-glow-purple">
-              <div className="text-3xl md:text-4xl font-bold gradient-text-rainbow">$2M+</div>
+              <div className="text-3xl md:text-4xl font-bold gradient-text-warm">$2M+</div>
               <div className="text-sm text-muted-foreground mt-2">Revenue Generated</div>
             </div>
           </div>
