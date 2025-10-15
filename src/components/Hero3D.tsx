@@ -12,7 +12,7 @@ const AnimatedSphere = () => {
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
       <Sphere args={[1, 100, 200]} scale={2.5}>
         <MeshDistortMaterial
-          color="#ffd700"
+          color="#3b82f6"
           attach="material"
           distort={0.5}
           speed={2}
@@ -22,7 +22,7 @@ const AnimatedSphere = () => {
       </Sphere>
       <Sphere args={[1, 100, 200]} scale={2.2} position={[1, 0, -0.5]}>
         <MeshDistortMaterial
-          color="#00d9ff"
+          color="#a855f7"
           attach="material"
           distort={0.3}
           speed={1.5}
@@ -30,6 +30,18 @@ const AnimatedSphere = () => {
           metalness={0.8}
           transparent
           opacity={0.7}
+        />
+      </Sphere>
+      <Sphere args={[1, 100, 200]} scale={1.8} position={[-1, 0, -0.3]}>
+        <MeshDistortMaterial
+          color="#10b981"
+          attach="material"
+          distort={0.4}
+          speed={1.8}
+          roughness={0.15}
+          metalness={0.85}
+          transparent
+          opacity={0.6}
         />
       </Sphere>
     </Float>
@@ -69,7 +81,7 @@ export const Hero3D = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-secondary/5" />
+      <div className="absolute inset-0 animated-gradient-ocean opacity-30" />
       
       {/* Floating 3D Icons Background */}
       <FloatingIcons3D />
@@ -92,15 +104,15 @@ export const Hero3D = () => {
         <div className="max-w-5xl mx-auto space-y-8">
           {/* Animated headline */}
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass glow-primary mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-accent glow-accent mb-6">
               <Zap className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium">Powered by Advanced AI</span>
+              <span className="text-sm font-medium text-glow-accent">Powered by Advanced AI</span>
             </div>
             
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-tight">
-              <span className="gradient-text">Amazon → eBay</span>
+              <span className="gradient-text-rainbow">Amazon → eBay</span>
               <br />
-              <span ref={headlineRef} className="inline-block transition-all">
+              <span ref={headlineRef} className="inline-block transition-all gradient-text-ocean">
                 {words[currentWord]}
               </span>
             </h1>
@@ -114,7 +126,7 @@ export const Hero3D = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg" 
-              className="text-lg px-8 py-6 animated-gradient glow-primary-lg group"
+              className="text-lg px-8 py-6 btn-rainbow glow-primary-lg group"
               onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Get Started <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -122,7 +134,7 @@ export const Hero3D = () => {
             <Button 
               size="lg" 
               variant="outline"
-              className="text-lg px-8 py-6 glass glass-hover"
+              className="text-lg px-8 py-6 glass-accent glass-hover hover-glow-green"
               onClick={scrollToDemo}
             >
               See Demo
@@ -131,16 +143,16 @@ export const Hero3D = () => {
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto pt-12">
-            <div className="glass p-6 rounded-2xl glass-hover">
-              <div className="text-3xl md:text-4xl font-bold gradient-text">10x</div>
+            <div className="card-vibrant p-6 rounded-2xl hover-glow-blue">
+              <div className="text-3xl md:text-4xl font-bold gradient-text-sunset">10x</div>
               <div className="text-sm text-muted-foreground mt-2">Faster Listing</div>
             </div>
-            <div className="glass p-6 rounded-2xl glass-hover">
-              <div className="text-3xl md:text-4xl font-bold gradient-text">+40%</div>
+            <div className="card-accent p-6 rounded-2xl hover-glow-green">
+              <div className="text-3xl md:text-4xl font-bold gradient-text-ocean">+40%</div>
               <div className="text-sm text-muted-foreground mt-2">Conversion Rate</div>
             </div>
-            <div className="glass p-6 rounded-2xl glass-hover">
-              <div className="text-3xl md:text-4xl font-bold gradient-text">$2M+</div>
+            <div className="card-vibrant p-6 rounded-2xl hover-glow-purple">
+              <div className="text-3xl md:text-4xl font-bold gradient-text-rainbow">$2M+</div>
               <div className="text-sm text-muted-foreground mt-2">Revenue Generated</div>
             </div>
           </div>
@@ -149,8 +161,8 @@ export const Hero3D = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 rounded-full border-2 border-primary/50 flex items-start justify-center p-2">
-          <div className="w-1 h-3 bg-primary rounded-full animate-pulse" />
+        <div className="w-6 h-10 rounded-full border-2 border-primary/50 flex items-start justify-center p-2 glow-primary">
+          <div className="w-1 h-3 bg-primary rounded-full animate-pulse glow-neon" />
         </div>
       </div>
     </section>
