@@ -608,4 +608,40 @@ All colors MUST be HSL.
       0 12px 40px rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
+  
+  /* Yellowish futuristic glassmorphism */
+  .glass-golden {
+    background: rgba(251, 191, 36, 0.1);
+    backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    box-shadow: 
+      0 8px 32px rgba(251, 191, 36, 0.1),
+      inset 0 1px 0 rgba(251, 191, 36, 0.2);
+  }
+  
+  .glass-golden:hover {
+    background: rgba(251, 191, 36, 0.15);
+    border-color: rgba(251, 191, 36, 0.3);
+    box-shadow: 
+      0 12px 40px rgba(251, 191, 36, 0.2),
+      inset 0 1px 0 rgba(251, 191, 36, 0.3);
+  }
+  
+  /* Clean modern glassmorphism */
+  .glass-clean {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(30px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 
+      0 4px 24px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  
+  .glass-clean:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
 }

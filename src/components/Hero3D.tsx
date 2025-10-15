@@ -155,22 +155,24 @@ export const Hero3D = () => {
       {/* Futuristic Background */}
       <FuturisticBackground />
       
-      {/* Rich animated background gradient */}
-      <div className="absolute inset-0 animated-gradient-fire opacity-40" />
-      <div className="absolute inset-0 animated-gradient-warm opacity-20" />
+      {/* Super clean rich background gradients */}
+      <div className="absolute inset-0 animated-gradient-golden opacity-30" />
+      <div className="absolute inset-0 animated-gradient-fire opacity-20" />
+      <div className="absolute inset-0 animated-gradient-warm opacity-15" />
       
       {/* Floating 3D Icons Background */}
       <FloatingIcons3D />
       
-      {/* 3D Canvas */}
-      <div className="absolute inset-0 opacity-30">
+      {/* Super clean 3D Canvas */}
+      <div className="absolute inset-0 opacity-25">
         <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
           <Suspense fallback={null}>
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[10, 10, 5]} intensity={1} />
-            <pointLight position={[-10, -10, -5]} intensity={0.5} color="#fbbf24" />
+            <ambientLight intensity={0.6} />
+            <directionalLight position={[10, 10, 5]} intensity={1.2} />
+            <pointLight position={[-10, -10, -5]} intensity={0.8} color="#fbbf24" />
+            <pointLight position={[10, -10, -3]} intensity={0.6} color="#ea580c" />
             <AnimatedSphere />
-            <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.3} />
+            <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.2} />
           </Suspense>
         </Canvas>
       </div>
