@@ -155,10 +155,8 @@ export const Hero3D = () => {
       {/* Futuristic Background */}
       <FuturisticBackground />
       
-      {/* Super clean rich background gradients */}
-      <div className="absolute inset-0 animated-gradient-golden opacity-30" />
-      <div className="absolute inset-0 animated-gradient-fire opacity-20" />
-      <div className="absolute inset-0 animated-gradient-warm opacity-15" />
+      {/* Original neon background gradients */}
+      <div className="absolute inset-0 animated-gradient opacity-30" />
       
       {/* Floating 3D Icons Background */}
       <FloatingIcons3D />
@@ -169,8 +167,7 @@ export const Hero3D = () => {
           <Suspense fallback={null}>
             <ambientLight intensity={0.6} />
             <directionalLight position={[10, 10, 5]} intensity={1.2} />
-            <pointLight position={[-10, -10, -5]} intensity={0.8} color="#fbbf24" />
-            <pointLight position={[10, -10, -3]} intensity={0.6} color="#ea580c" />
+            <pointLight position={[-10, -10, -5]} intensity={0.5} color="#fbbf24" />
             <AnimatedSphere />
             <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.2} />
           </Suspense>
@@ -192,11 +189,11 @@ export const Hero3D = () => {
           {/* Compact Main Title with Typewriter */}
           <div ref={titleRef} className="space-y-4">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-tight">
-              <span className="gradient-text-fire block mb-2">Amazon → eBay</span>
+              <span className="gradient-text block mb-2">Amazon → eBay</span>
               <div className="h-16 md:h-20 lg:h-24 flex items-center justify-center">
                 <TypewriterEffect 
                   words={typewriterWords}
-                  className="gradient-text-golden text-3xl md:text-5xl lg:text-6xl font-bold"
+                  className="gradient-text text-3xl md:text-5xl lg:text-6xl font-bold"
                   speed={100}
                   deleteSpeed={50}
                   pauseTime={1200}
@@ -209,7 +206,7 @@ export const Hero3D = () => {
           <div ref={subtitleRef} className="max-w-3xl mx-auto">
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
               Generate optimized eBay listings automatically and boost your revenue{' '}
-              <span className="gradient-text-fire font-semibold">10x faster</span> with AI
+              <span className="gradient-text font-semibold">10x faster</span> with AI
             </p>
           </div>
 
@@ -252,9 +249,9 @@ export const Hero3D = () => {
           {/* Compact Rich Stats */}
           <div className="grid grid-cols-3 gap-4 max-w-4xl mx-auto pt-8">
             {[
-              { value: "10x", label: "Faster", gradient: "gradient-text-fire", bg: "bg-primary/10" },
-              { value: "+40%", label: "Conversion", gradient: "gradient-text-golden", bg: "bg-accent/10" },
-              { value: "$2M+", label: "Revenue", gradient: "gradient-text-warm", bg: "bg-accent-2/10" }
+              { value: "10x", label: "Faster", gradient: "gradient-text", bg: "bg-primary/10" },
+              { value: "+40%", label: "Conversion", gradient: "gradient-text", bg: "bg-accent/10" },
+              { value: "$2M+", label: "Revenue", gradient: "gradient-text", bg: "bg-secondary/10" }
             ].map((stat, index) => (
               <div key={index} className={`${stat.bg} p-6 rounded-2xl border border-current/20 hover:scale-105 transition-all duration-300 group`}>
                 <div className={`text-4xl md:text-5xl font-bold ${stat.gradient} mb-2`}>

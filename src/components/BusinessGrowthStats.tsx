@@ -15,38 +15,38 @@ const chartData = [
 ];
 
 const stats = [
-  {
-    icon: TrendingUp,
-    value: '+127%',
-    label: 'Revenue Growth',
-    color: 'text-accent',
-    bg: 'bg-accent/20',
-    border: 'border-accent/30'
-  },
-  {
-    icon: DollarSign,
-    value: '$2.4M',
-    label: 'Total Sales',
-    color: 'text-primary',
-    bg: 'bg-primary/20',
-    border: 'border-primary/30'
-  },
-  {
-    icon: Users,
-    value: '+89%',
-    label: 'Customer Growth',
-    color: 'text-accent-2',
-    bg: 'bg-accent-2/20',
-    border: 'border-accent-2/30'
-  },
-  {
-    icon: Zap,
-    value: '10x',
-    label: 'Efficiency Boost',
-    color: 'text-accent-3',
-    bg: 'bg-accent-3/20',
-    border: 'border-accent-3/30'
-  }
+    {
+      icon: TrendingUp,
+      value: '+127%',
+      label: 'Revenue Growth',
+      color: 'text-accent',
+      bg: 'bg-accent/20',
+      border: 'border-accent/30'
+    },
+    {
+      icon: DollarSign,
+      value: '$2.4M',
+      label: 'Total Sales',
+      color: 'text-primary',
+      bg: 'bg-primary/20',
+      border: 'border-primary/30'
+    },
+    {
+      icon: Users,
+      value: '+89%',
+      label: 'Customer Growth',
+      color: 'text-secondary',
+      bg: 'bg-secondary/20',
+      border: 'border-secondary/30'
+    },
+    {
+      icon: Zap,
+      value: '10x',
+      label: 'Efficiency Boost',
+      color: 'text-accent',
+      bg: 'bg-accent/20',
+      border: 'border-accent/30'
+    }
 ];
 
 export const BusinessGrowthStats = () => {
@@ -117,8 +117,7 @@ export const BusinessGrowthStats = () => {
   return (
     <section ref={sectionRef} className="py-20 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 animated-gradient-golden opacity-20" />
-      <div className="absolute inset-0 animated-gradient-fire opacity-10" />
+      <div className="absolute inset-0 animated-gradient opacity-20" />
       
       {/* 3D Arrows in background */}
       <div className="absolute inset-0 pointer-events-none">
@@ -146,9 +145,9 @@ export const BusinessGrowthStats = () => {
           </HolographicEffect>
           
           <h2 className="text-4xl md:text-6xl font-heading font-bold mb-6">
-            <span className="gradient-text-fire">Business Growth</span>
+            <span className="gradient-text">Business Growth</span>
             <br />
-            <span className="gradient-text-golden">& Sales Stats</span>
+            <span className="gradient-text">& Sales Stats</span>
           </h2>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
@@ -161,7 +160,7 @@ export const BusinessGrowthStats = () => {
           <HolographicEffect>
             <div className="glass-futuristic p-8 rounded-3xl border border-primary/20">
               <div className="text-center mb-8">
-                <h3 className="text-2xl md:text-3xl font-bold gradient-text-fire mb-2">
+                <h3 className="text-2xl md:text-3xl font-bold gradient-text mb-2">
                   Quarterly Growth Chart
                 </h3>
                 <p className="text-muted-foreground">
@@ -223,22 +222,22 @@ export const BusinessGrowthStats = () => {
             <div className="glass-futuristic p-8 rounded-3xl border border-accent/20">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <TrendingUp className="w-8 h-8 text-accent animate-pulse" />
-                <h3 className="text-2xl md:text-3xl font-bold gradient-text-fire">
+                <h3 className="text-2xl md:text-3xl font-bold gradient-text">
                   Consistent Growth Trajectory
                 </h3>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="text-center">
-                  <div className="text-4xl font-bold gradient-text-golden mb-2">↑</div>
+                  <div className="text-4xl font-bold gradient-text mb-2">↑</div>
                   <div className="text-sm text-muted-foreground">Upward Trend</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold gradient-text-fire mb-2">📈</div>
+                  <div className="text-4xl font-bold gradient-text mb-2">📈</div>
                   <div className="text-sm text-muted-foreground">Steady Growth</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold gradient-text-warm mb-2">🚀</div>
+                  <div className="text-4xl font-bold gradient-text mb-2">🚀</div>
                   <div className="text-sm text-muted-foreground">Exponential Rise</div>
                 </div>
               </div>

@@ -94,13 +94,13 @@ const FloatingLogo = ({ position, color, speed = 1, scale = 1 }: { position: [nu
 const Scene = () => {
   const icons: FloatingIconProps[] = [
     { position: [-6, 3, -5], color: '#fbbf24', speed: 1.2, floatIntensity: 1.5, scale: 0.8 },
-    { position: [6, -2, -3], color: '#dc2626', speed: 0.8, floatIntensity: 1.2, scale: 0.9 },
-    { position: [-4, -3, -4], color: '#ea580c', speed: 1, floatIntensity: 1, scale: 0.7 },
-    { position: [4, 3, -6], color: '#dc2626', speed: 1.1, floatIntensity: 1.3, scale: 0.85 },
-    { position: [0, -4, -5], color: '#f59e0b', speed: 0.9, floatIntensity: 1.1, scale: 0.75 },
-    { position: [-7, 0, -4], color: '#fbbf24', speed: 1.3, floatIntensity: 1.4, scale: 0.8 },
-    { position: [7, 1, -5], color: '#dc2626', speed: 1.1, floatIntensity: 1.2, scale: 0.9 },
-    { position: [2, 4, -6], color: '#ea580c', speed: 0.85, floatIntensity: 1.35, scale: 0.7 },
+    { position: [6, -2, -3], color: '#00d4ff', speed: 0.8, floatIntensity: 1.2, scale: 0.9 },
+    { position: [-4, -3, -4], color: '#ff6b35', speed: 1, floatIntensity: 1, scale: 0.7 },
+    { position: [4, 3, -6], color: '#fbbf24', speed: 1.1, floatIntensity: 1.3, scale: 0.85 },
+    { position: [0, -4, -5], color: '#00d4ff', speed: 0.9, floatIntensity: 1.1, scale: 0.75 },
+    { position: [-7, 0, -4], color: '#ff6b35', speed: 1.3, floatIntensity: 1.4, scale: 0.8 },
+    { position: [7, 1, -5], color: '#fbbf24', speed: 1.1, floatIntensity: 1.2, scale: 0.9 },
+    { position: [2, 4, -6], color: '#00d4ff', speed: 0.85, floatIntensity: 1.35, scale: 0.7 },
   ];
 
   const logos: { position: [number, number, number]; color: string; speed: number; scale: number }[] = [

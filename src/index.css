@@ -8,76 +8,58 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Rich dark background with purple undertones */
-    --background: 240 20% 6%;
-    --foreground: 0 0% 98%;
+    /* Futuristic neon yellowish background */
+    --background: 220 40% 8%;
+    --foreground: 50 100% 95%;
 
-    /* Vibrant glassmorphic cards */
-    --card: 240 15% 10%;
-    --card-foreground: 0 0% 98%;
+    /* Glassmorphic cards with yellow tint */
+    --card: 45 30% 12%;
+    --card-foreground: 50 100% 95%;
 
-    --popover: 240 15% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 45 30% 12%;
+    --popover-foreground: 50 100% 95%;
 
-    /* Vibrant golden yellow primary */
-    --primary: 45 100% 60%;
-    --primary-foreground: 240 20% 6%;
-    --primary-glow: 45 100% 70%;
+    /* Neon yellow primary */
+    --primary: 52 100% 60%;
+    --primary-foreground: 220 40% 8%;
+    --primary-glow: 52 100% 70%;
     
-    /* Deep red secondary */
-    --secondary: 0 85% 60%;
-    --secondary-foreground: 240 20% 6%;
+    /* Cyan neon accent */
+    --secondary: 180 100% 60%;
+    --secondary-foreground: 220 40% 8%;
 
-    /* Rich muted tones */
-    --muted: 240 10% 20%;
-    --muted-foreground: 0 0% 70%;
+    /* Muted glassmorphic with yellow tint */
+    --muted: 45 20% 18%;
+    --muted-foreground: 50 40% 70%;
 
-    /* Bright orange accent */
-    --accent: 25 100% 60%;
-    --accent-foreground: 240 20% 6%;
-
-    /* Crimson red accent */
-    --accent-2: 350 85% 65%;
-    --accent-2-foreground: 240 20% 6%;
-
-    /* Amber accent */
-    --accent-3: 35 100% 65%;
-    --accent-3-foreground: 240 20% 6%;
+    /* Orange neon accent */
+    --accent: 35 100% 60%;
+    --accent-foreground: 220 40% 8%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 50 100% 95%;
 
-    --border: 240 20% 25%;
-    --input: 240 15% 15%;
-    --ring: 210 100% 60%;
+    --border: 50 50% 25%;
+    --input: 45 30% 15%;
+    --ring: 52 100% 60%;
 
     --radius: 1.5rem;
     
-    /* Warm yellowish-reddish gradients */
+    /* Custom neon gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
-    --gradient-glow: linear-gradient(135deg, hsl(var(--primary) / 0.4), hsl(var(--secondary) / 0.4));
-    --gradient-accent: radial-gradient(circle at 50% 50%, hsl(var(--accent) / 0.5), transparent);
-    --gradient-neon: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent-2)), hsl(var(--accent)), hsl(var(--secondary)));
-    --gradient-rainbow: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent-2)), hsl(var(--accent)), hsl(var(--accent-3)), hsl(var(--secondary)));
-    --gradient-sunset: linear-gradient(135deg, hsl(var(--accent-2)), hsl(var(--accent-3)), hsl(var(--primary)));
-    --gradient-ocean: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)));
-    --gradient-fire: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--accent-2)));
-    --gradient-golden: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-3)), hsl(var(--accent)));
-    --gradient-warm: linear-gradient(45deg, hsl(var(--accent-3)), hsl(var(--primary)), hsl(var(--accent)), hsl(var(--accent-2)));
+    --gradient-glow: linear-gradient(135deg, hsl(var(--primary) / 0.3), hsl(var(--secondary) / 0.3));
+    --gradient-accent: radial-gradient(circle at 50% 50%, hsl(var(--accent) / 0.4), transparent);
+    --gradient-neon: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--secondary)));
     
-    /* Enhanced glassmorphic effects */
-    --glass-bg: hsl(var(--card) / 0.6);
-    --glass-border: hsl(var(--primary) / 0.4);
-    --glass-border-accent: hsl(var(--accent) / 0.4);
+    /* Glassmorphic effects with neon */
+    --glass-bg: hsl(var(--card) / 0.5);
+    --glass-border: hsl(var(--primary) / 0.3);
     
-    /* Rich glow shadows */
-    --shadow-glow: 0 0 60px hsl(var(--primary) / 0.7), 0 0 120px hsl(var(--primary) / 0.4);
-    --shadow-glow-lg: 0 0 120px hsl(var(--primary) / 0.8), 0 0 200px hsl(var(--primary) / 0.5);
-    --shadow-card: 0 12px 40px hsl(0 0% 0% / 0.6), 0 0 30px hsl(var(--primary) / 0.3);
-    --shadow-neon: 0 0 40px hsl(var(--primary) / 0.9);
-    --shadow-accent: 0 0 50px hsl(var(--accent) / 0.8);
-    --shadow-purple: 0 0 50px hsl(var(--secondary) / 0.8);
-    --shadow-pink: 0 0 50px hsl(var(--accent-2) / 0.8);
+    /* Neon glow shadows */
+    --shadow-glow: 0 0 50px hsl(var(--primary) / 0.6), 0 0 100px hsl(var(--primary) / 0.3);
+    --shadow-glow-lg: 0 0 100px hsl(var(--primary) / 0.7), 0 0 150px hsl(var(--primary) / 0.4);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.5), 0 0 20px hsl(var(--primary) / 0.2);
+    --shadow-neon: 0 0 30px hsl(var(--primary) / 0.8);
     
     /* Smooth animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -102,17 +84,17 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Enhanced rich dark theme */
-    --background: 240 20% 4%;
-    --foreground: 0 0% 98%;
-    --sidebar-background: 240 15% 8%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 210 100% 60%;
-    --sidebar-primary-foreground: 240 20% 6%;
-    --sidebar-accent: 240 10% 15%;
-    --sidebar-accent-foreground: 0 0% 90%;
-    --sidebar-border: 240 20% 25%;
-    --sidebar-ring: 210 100% 60%;
+    /* Same neon yellowish theme for dark mode */
+    --background: 220 40% 8%;
+    --foreground: 50 100% 95%;
+    --sidebar-background: 220 40% 10%;
+    --sidebar-foreground: 50 100% 90%;
+    --sidebar-primary: 52 100% 60%;
+    --sidebar-primary-foreground: 220 40% 8%;
+    --sidebar-accent: 45 30% 15%;
+    --sidebar-accent-foreground: 50 100% 90%;
+    --sidebar-border: 50 50% 25%;
+    --sidebar-ring: 52 100% 60%;
   }
 }
 
@@ -196,32 +178,8 @@ All colors MUST be HSL.
     animation: gradient-shift 4s ease infinite;
   }
   
-  .gradient-text-fire {
-    background: var(--gradient-fire);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-shift 3s ease infinite;
-  }
   
-  .gradient-text-golden {
-    background: var(--gradient-golden);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-shift 4s ease infinite;
-  }
   
-  .gradient-text-warm {
-    background: var(--gradient-warm);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-shift 5s ease infinite;
-  }
   
   /* Enhanced glow effects */
   .glow-primary {
@@ -273,23 +231,6 @@ All colors MUST be HSL.
     animation: gradient-shift 5s ease infinite;
   }
   
-  .animated-gradient-fire {
-    background: var(--gradient-fire);
-    background-size: 200% 200%;
-    animation: gradient-shift 3s ease infinite;
-  }
-  
-  .animated-gradient-golden {
-    background: var(--gradient-golden);
-    background-size: 200% 200%;
-    animation: gradient-shift 4s ease infinite;
-  }
-  
-  .animated-gradient-warm {
-    background: var(--gradient-warm);
-    background-size: 300% 300%;
-    animation: gradient-shift 6s ease infinite;
-  }
   
   @keyframes gradient-shift {
     0% { background-position: 0% 50%; }
